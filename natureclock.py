@@ -1,16 +1,31 @@
 from tkinter import *
 import datetime
-import playsound
+import time
+#from playsound import playsound
+
+from pydub import AudioSegment
+from pydub.playback import play
+
 
 def setClock():
-    pass
+    # For a Tkinter.IntVar object - need to call its get method to access the value that it 
+    # represents   
+    wakeTime = "{}:{}".format(hour.get(), minute.get())
+    print(wakeTime)
+    while True :
+        time.sleep(1)
+        now = datetime.datetime.now().strftime("%H:%M")
+        if now == wakeTime :
+            #playsound("98371_1635617-lq_englishcountryside.freesound.org.mp3")
+            song = AudioSegment.from_mp3("98371_1635617-lq_englishcountryside.freesound.org.mp3")
+            play(song)
+            break
 
 clock = Tk()
 clock.title("Nature Clock")
 clock.geometry("300x200")
 
 
-#img = PhotoImage(file="pythontTkinter-adding-image-to-background-.png")
 img = PhotoImage(file="bluebell-wood.png")
 label = Label(
     clock,
@@ -18,16 +33,7 @@ label = Label(
 )
 label.place(x=0, y=0)
 
-
-#Adding transparent background property
-#clock.wm_attributes('-transparentcolor', '#ab23ff')
-
-#Create a Label
-#Label(win, text= "This is a New line Text", font= ('Helvetica 18'), bg= '#ab23ff').pack(ipadx= 50, ipady=50, padx= 20)
-
-
-
-lbTitle = Label(clock, text="Set the time", fg="white", bg="#003300").place(x=30, y=25)
+lbTitle = Label(clock, text="Set wake time", fg="white", bg="#003300").place(x=30, y=25)
 lbHour = Label(clock, text="Hour", fg="white", bg="#6600ff").place(x=30, y=65)
 lbMin = Label(clock, text="Minute", fg="white", bg="#6600ff").place(x=120, y=65)
 
@@ -45,5 +51,7 @@ submit = Button(clock, text = "Set", fg="black", width = 10, command = setClock)
 
 # Compile the previous configuration and run the application
 clock.mainloop()
+
+
 
 
