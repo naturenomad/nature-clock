@@ -21,10 +21,10 @@ def setClock():
             play(song)
             break
 
+
 clock = Tk()
 clock.title("Nature Clock")
 clock.geometry("300x200")
-
 
 img = PhotoImage(file="bluebell-wood.png")
 label = Label(
