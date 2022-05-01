@@ -43,11 +43,11 @@ hour = StringVar()
 minute = StringVar()
 
 # Text boxes
-hourTime= Entry(clock, textvariable = hour, width = 10).place(x=30, y=90)
-minTime= Entry(clock, textvariable = minute, width = 10).place(x=120, y=90)
+hourTime= Entry(clock, textvariable=hour, width=10).place(x=30, y=90)
+minTime= Entry(clock, textvariable=minute, width=10).place(x=120, y=90)
 
 # Button 
-submit = Button(clock, text = "Set", fg="black", width = 10, command = setClock).place(x=30, y=140)
+submit = Button(clock, text = "Set", fg="black", width=10, command=setClock).place(x=30, y=140)
 
 # Compile the previous configuration and run the application
 clock.mainloop()
