@@ -10,5 +10,7 @@ sudo apt install portaudio19-dev python3-pyaudio
 
 Install to local folder and run on the command line with :
 python3 natureclock.py
+or
+python3 natureclock_simple.py
 
 
